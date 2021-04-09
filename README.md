@@ -1,2 +1,1 @@
 # cerbersec.github.io
-Blog
