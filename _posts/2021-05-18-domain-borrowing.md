@@ -1,10 +1,15 @@
 ---
+layout: article
 title: Domain Borrowing
-author: Cerbersec
-layout: post
+tags: domain-borrowing DomainBorrowingC2
+date: 2021-05-18 08:00:00 +0100
+article_header:
+  type: cover
+  image:
+    src: /assets/images/banner-wide.png
 ---
 
-In this post I will go over the basics of Domain Borrowing and how [DomainBorrowingC2](https://github.com/Cerbersec/DomainBorrowingC2) was built.
+In this post I will go over the basics of Domain Borrowing and how [DomainBorrowingC2](https://github.com/Cerbersec/DomainBorrowingC2) was built.<!--more-->
 
 ## Do you mind if I borrow your domain?
 

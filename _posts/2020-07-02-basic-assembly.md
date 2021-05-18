@@ -1,14 +1,19 @@
 ---
-title: Basic assembly
-author: Cerbersec
-layout: post
+layout: article
+title: Basic Assembly
+tags: assembly nasm
+date: 2020-07-02 08:00:00 +0100
+article_header:
+  type: cover
+  image:
+    src: /assets/images/banner-wide.png
 ---
 
 THIS POST IS A WORK IN PROGRESS
 
-In this post I'll go over writing a basic Hello World program in C, using MinGW to compile, assemble and link it. I'll be looking at the assembly, writing my own Hello World in NASM and using nasm and ld to assemble and link it.
+In this post I'll go over writing a basic Hello World program in C, using MinGW to compile, assemble and link it. I'll be looking at the assembly, writing my own Hello World in NASM and using nasm and ld to assemble and link it.<!--more-->
 
-<h2>Writing "Hello World" in C</h2>
+## Writing "Hello World" in C
 
 ```
 # hello world.c
@@ -21,7 +26,7 @@ int main() {
 }
 ```
 
-<h2>Using MinGW</h2>
+## Using MinGW
 
 Generate raw assembly: compile, not assemble, not link<br>
 `gcc -S "hello world.c" -o "hello world.S"`
@@ -32,7 +37,7 @@ Generate object file: compile, assemble, not link<br>
 Generate stripped portable executable (PE): compile, assemble, link, strip<br>
 `gcc -s "hello world.o" -o "hello world.exe"`
 
-<h2>Writing "Hello World" in NASM</h2>
+## Writing "Hello World" in NASM
 
 ```
 ; hello world.asm
@@ -66,7 +71,7 @@ _start:
         call    _ExitProcess@4
 ```
 
-<h2>Using nasm.exe and ld.exe</h2>
+## Using nasm.exe and ld.exe
 
 Generate object file: assemble with nasm<br>
 `nasm -fwin32 "hello world.asm"`

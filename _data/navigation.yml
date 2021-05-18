@@ -1,0 +1,15 @@
+header:
+  - title: About
+    url: /about.html
+
+  - title: Pentest Cheatsheet
+    url: /pentest-cheatsheet.html
+
+  - title: Malware Cheatsheet
+    url: /malware-cheatsheet.html
+
+  - title: Resources
+    url: /resources.html
+
+  - title: Archive
+    url: /archive.html

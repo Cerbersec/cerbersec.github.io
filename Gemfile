@@ -1,5 +1,4 @@
 source "https://rubygems.org"
+
+# gem "github-pages", group: :jekyll_plugins
 gemspec
-gem 'jekyll-sitemap'
-gem 'jekyll', '~> 3.3', '>= 3.3.1'
-gem 'bundler', '~> 2.1', '>= 2.1.4'

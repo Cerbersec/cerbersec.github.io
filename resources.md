@@ -1,8 +1,8 @@
 ---
-layout: cheatsheet
+layout: article
 title: Resources
-icon: fa-database
-order: 6
+aside:
+  toc: true
 ---
 
 ## RESOURCES AND SOURCES
