@@ -1,7 +1,4 @@
 header:
-  - title: About
-    url: /about.html
-
   - title: Pentest Cheatsheet
     url: /pentest-cheatsheet.html
 

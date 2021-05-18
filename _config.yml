@@ -18,7 +18,7 @@
 ##############################
 text_skin: dark # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
 highlight_theme: tomorrow-night # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-url     : https://cerbersec.com/test # the base hostname & protocol for your site e.g. https://www.someone.com
+url     : https://cerbersec.com # the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl : # does not include hostname
 title   : Cerbersec
 description: > # this means to ignore newlines until "Language & timezone"
@@ -55,7 +55,7 @@ author:
 
 ## => GitHub Repository (if the site is hosted by GitHub)
 ##############################
-repository: Cerbersec/test
+repository: Cerbersec/cerbersec.github.io
 repository_tree: master
 
 
