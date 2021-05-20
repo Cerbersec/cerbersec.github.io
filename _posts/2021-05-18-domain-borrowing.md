@@ -9,7 +9,7 @@ article_header:
     src: /assets/images/banner-wide.png
 ---
 
-In this post I will go over the basics of Domain Borrowing and how [DomainBorrowingC2](https://github.com/Cerbersec/DomainBorrowingC2) was built.<!--more-->
+In this post I will go over the basics of Domain Borrowing and how [DomainBorrowingC2](https://github.com/Cerbersec/DomainBorrowingC2) was built. DomainBorrowingC2 was made as part of an internship at [NVISO Security](https://nviso.eu/en)'s Red Team. Follow their work on [their blog](https://blog.nviso.eu) and [Twitter](https://twitter.com/NVISO_Labs).<!--more-->
 
 ## Do you mind if I borrow your domain?
 
