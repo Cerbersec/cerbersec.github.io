@@ -7,7 +7,7 @@ title: About
 
 > I make things to break things
 
-Amateur malware analyst [@MalPhobic](https://github.com/MalPhobic). I write questionable content on my [blog](https://cerbersec.com). Follow me on [Twitter](https://twitter.com/cerbersec).
+Cyber Security student with a passion for red teaming and MalDev. Amateur malware analyst [@MalPhobic](https://github.com/MalPhobic). Follow me on Twitter [@Cerbersec](https://twitter.com/cerbersec) and [GitHub](https://github.com/Cerbersec).
 
 <a href="https://github.com/Cerbersec">
   <img align="center" src="https://github-readme-stats.vercel.app/api?username=cerbersec&count_private=true&show_icons=true&line_height=33&theme=tokyonight" alt="Cerbersec's GitHub Stats" />
