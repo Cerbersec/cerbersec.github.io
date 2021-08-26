@@ -121,7 +121,7 @@ memset(&pi, 0, sizeof(pi));
 CreateProcessA("C:\\Windows\\System32\\calc.exe", NULL, NULL, NULL, FALSE, NULL, NULL, NULL, &si, &pi);
 ```
 
-To use our newly spawned process, we need to obtain a handle to it. We can use the `OpenProcess` function contained in `kernel32.dll`. For the sake of keeping this blogpost somewhat short (who am I kidding), we will assume we know the process ID (PID) of our `calc.exe` process. In practice I utilise code to enumerate all the running processes on the machine until I have found `calculator.exe`, which can be found [below](/2021/08/26/beacon-object-files-part-1.html#7-lets-cram-this-into-a-bof).
+To use our newly spawned process, we need to obtain a handle to it. We can use the `OpenProcess` function contained in `kernel32.dll`. For the sake of keeping this blogpost somewhat short (who am I kidding), we will assume we know the process ID (PID) of our `calc.exe` process. In practice I utilise code to enumerate all the running processes on the machine until I have found the process I'm looking for, which can be found [below](/2021/08/26/beacon-object-files-part-1.html#7-lets-cram-this-into-a-bof).
 
 ```c
 DWORD pid = 6969; //calc.exe
@@ -309,6 +309,54 @@ lblCleanup:
     hProcess = NULL;
     hThread = NULL;
     return;
+}
+```
+
+Code to enumerate running processes and retrieve a handle to a specific process:
+
+```c
+HANDLE FindProcess(char* procName)
+{
+    HANDLE hProcess;
+    PROCESSENTRY32 entry;
+    entry.dwSize = sizeof(PROCESSENTRY32);
+
+    HANDLE snapshot = KERNEL32$CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+
+    if(KERNEL32$Process32First(snapshot, &entry) == TRUE)
+    {
+        while(KERNEL32$Process32Next(snapshot, &entry) == TRUE)
+        {
+            if(MSVCRT$_stricmp(entry.szExeFile, procName) == 0)
+            {
+                CLIENT_ID cID;
+                cID.UniqueThread = 0;
+                cID.UniqueProcess = UlongToHandle(entry.th32ProcessID);
+
+                OBJECT_ATTRIBUTES oa;
+                InitializeObjectAttributes(&oa, 0, 0, 0, 0);
+
+                NtOpenProcess(&hProcess, PROCESS_ALL_ACCESS, &oa, &cID);
+
+                if(hProcess != NULL)
+                {
+                    NtClose(snapshot);
+                    snapshot = NULL;
+                    return hProcess;
+                }
+                else
+                {
+                    BeaconPrintf(CALLBACK_ERROR, "Could not find a running instance of this process");
+                    NtClose(snapshot);
+                    snapshot = NULL;
+                    return 0;
+                }
+            }
+        }
+    }
+    NtClose(snapshot);
+    snapshot = NULL;
+    return 0;
 }
 ```
 
