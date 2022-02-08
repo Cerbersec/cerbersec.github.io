@@ -7,7 +7,7 @@ title: About
 
 > I make things to break things
 
-Cyber Security student with a passion for red teaming and MalDev. Amateur malware analyst [@MalPhobic](https://github.com/MalPhobic). Follow me on Twitter [@Cerbersec](https://twitter.com/cerbersec) and [GitHub](https://github.com/Cerbersec).
+Red Team [@NVISO](https://www.nviso.eu/). Amateur malware analyst [@MalPhobic](https://github.com/MalPhobic). Follow me on Twitter [@Cerbersec](https://twitter.com/cerbersec) and [GitHub](https://github.com/Cerbersec).
 
 I occassionally post content on my [YouTube](https://www.youtube.com/channel/UCUjV7DRdlmBnKHImJvi4JFQ).
 
