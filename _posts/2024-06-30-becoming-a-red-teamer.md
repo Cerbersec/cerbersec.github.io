@@ -9,7 +9,7 @@ article_header:
     src: /assets/images/banner-wide.png
 ---
 
-I receive the questions "I want to become a red teamer" or "How do I get started in pentesting / red teaming?" pretty often. Instead of repeating myself, I'll write down my recommended path to take if I had to do it all over again. Here we go.
+I receive the questions "I want to become a red teamer" or "How do I get started in pentesting / red teaming?" pretty often. Instead of repeating myself, I'll write down my recommended path to take if I had to do it all over again. Here we go. <!--more-->
 
 ### 0. What did you do?
 
