@@ -7,7 +7,7 @@ title: About
 
 > I make things to break things
 
-Red Team [@NVISO](https://www.nviso.eu/). Amateur malware analyst [@MalPhobic](https://github.com/MalPhobic). Follow me on Twitter [@Cerbersec](https://twitter.com/cerbersec) and [GitHub](https://github.com/Cerbersec).
+I am a professional red team operator [@NVISO](https://ares.nviso.eu/) with a passion for malware development and low level coding. Follow me on Twitter [@Cerbersec](https://twitter.com/cerbersec) and [GitHub](https://github.com/Cerbersec).
 
 I occassionally post content on my [YouTube](https://www.youtube.com/channel/UCUjV7DRdlmBnKHImJvi4JFQ).
 

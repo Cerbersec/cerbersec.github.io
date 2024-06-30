@@ -10,29 +10,20 @@ This is a non-curated list of sources and resources that helped me get started w
 
 ### YouTube
 * [Ippsec](https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA) - For all your awesome HackTheBox walkthroughs
-* [Kindredsec](https://www.youtube.com/channel/UCwTH3RkRCIE35RJ16Nh8V8Q) - Malware analysis, HackTheBox walkthroughs
-* [Colin Hardy](https://www.youtube.com/channel/UCND1KVdVt8A580SjdaS4cZg) - Malware analysis
 * [TheCyberMentor](https://www.youtube.com/channel/UC0ArlFuFYMpEewyRBzdLHiw) - Networking, penetration testing, Buffer overflows, Linux for beginners and much more
 * [LiveOverflow](https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w) - Binary exploitation and CTF's
-* [MalwareAnalysisForHedgehogs](https://www.youtube.com/channel/UCVFXrUwuWxNlm6UNZtBLJ-A) - Malware analysis
-* [Open SecurityTraining](https://www.youtube.com/channel/UCthV50MozQIfawL9a_g5rdg) - Malware analysis, reverse engineering
-* [0verfl0w_](https://www.youtube.com/channel/UCrnGneCt1fB90zj8qnq3hVA) - Malware Analysis
-* [Michael Gillespie](https://www.youtube.com/channel/UCDbWhUnMdhxi2bo-oZQ1m3Q) - Malware analysis
 * [Guided Hacking](https://www.youtube.com/channel/UCCMi6F5Ac3kQDfffWXQGZDw) - Malware analysis, binary exploitation, reverse engineering, HackTheBox walkthroughs
-
-### Twitch
-* [Cyber_Insecurity](https://www.twitch.tv/cyber_insecurity) - AMA's, podcasts, tech talks and the like
+* [John Hammond](https://www.youtube.com/@_JohnHammond) - HackTheBox, malware analysis, CTF, AppSec and more
 
 ### Platforms
 * [HackTheBox](https://www.hackthebox.eu/) - Penetration testing labs
 * [Vulnhub](https://www.vulnhub.com/) - Vulnerable Virtual Machines
 * [HackerOne](https://www.hackerone.com/) - Bug Bounty platform
+* [MalDev Academy](https://maldevacademy.com/) - Everything Malware Development
 
 ### Subreddits
 * [r/netsec](https://www.reddit.com/r/netsec/) - Please don't pollute
 * [r/netsecstudents](https://www.reddit.com/r/netsecstudents/)
-* [r/blackhat](https://www.reddit.com/r/blackhat/)
-* [r/malware](https://www.reddit.com/r/Malware/)
 * [r/redteamsec](https://www.reddit.com/r/redteamsec/)
 * [r/liveoverflow](https://www.reddit.com/r/LiveOverflow/)
 * [r/hackthebox](https://www.reddit.com/r/hackthebox/)
@@ -41,25 +32,16 @@ This is a non-curated list of sources and resources that helped me get started w
 * [CTFTime](https://ctftime.org/) - Capture The Flag platform
 
 ### Cheatsheets
+* [HackTricks](https://book.hacktricks.xyz/) - Extensive documentation of techniques and tools
+* [The Hacker Tools](https://tools.thehacker.recipes/) - Extensive documentation of tecniques and tools
 * [Red Teaming cheatsheets](https://ired.team/offensive-security-experiments/offensive-security-cheetsheets) - Cheatsheets useful for: pentesting, OSCP, CTF's
 * [Pentestmonkey](http://pentestmonkey.net/) - Pentest goldmine, cheatsheets, tools and more
-* [Windows Privesc Guide](https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/?fbclid=IwAR0_t218VyGm9ZO20tiFeAyLcMqXl17BSng06KXO2kMOKfVlvkSRGaWCskU)
-* [Linux Privesc Guide](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/)
 * [GTFOBins](https://gtfobins.github.io/) - Curated list of exploitable Linux binaries
-* [The Hackers Choice Tips & Tricks](https://github.com/hackerschoice/thc-tips-tricks-hacks-cheat-sheet) - Huge collection of useful commands, one-liners and more
-
-### Github repositories
-* [SecLists](https://github.com/danielmiessler/SecLists) - Huge collection of wordlists
-* [Awesome OSCP](https://github.com/0x4D31/awesome-oscp) - OSCP related resources
-* [DotStackBufferoverflowGood](https://github.com/justinsteven/dostackbufferoverflowgood) - Windows 32 stack bufferoverflow project by [Justin Steven](https://twitter.com/justinsteven)
-* [Just Another Linux Enumeration Script JALESC](https://github.com/itsKindred/jalesc) - Awesome enumeration script made by [Kindredsec](https://www.youtube.com/channel/UCwTH3RkRCIE35RJ16Nh8V8Q)
-* [Impacket](https://github.com/SecureAuthCorp/impacket) - Collection of Python classes for working with network protocols
-* [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) - List of useful payloads and bypass for Web Application Security and Pentest/CTF
+* [LOLBAS](https://lolbas-project.github.io/#dll) - Curated list of living off the land binaries, scripts and libraries
 
 ### Paid courses
-* [Practical Ethical Hacking - TheCyberMentor](https://www.udemy.com/course/practical-ethical-hacking/) - Udemy course on penetration testing
-* [Penetration testing with Kali Linux - Offensive Security](https://www.offensive-security.com/pwk-oscp/) - The official OSCP certification course
-* [The Beginner Malware Analysis Course](https://0verfl0w.podia.com/malware-analysis-course) - Beginner/introductory malware analysis course by 0verfl0w_
+* [TCM Academy](https://academy.tcm-sec.com/) - Quality courses at affordable prices
+* [Zero-Point Security](https://training.zeropointsecurity.co.uk/collections) - Renowned courses such as CRTO 1 & 2 by the one and only [Rasta Mouse](https://twitter.com/_RastaMouse)
 * [Zero 2 Automated](https://courses.zero2auto.com/) - Malware analysis/reverse engineering
 
 ### Offensive Security Certified Professional (OSCP) Specific
@@ -90,3 +72,4 @@ This is a non-curated list of sources and resources that helped me get started w
 * [Vickie Li](https://vickieli.dev/)
 * [0xf0x](https://neil-fox.github.io/)
 * [TheWover](https://thewover.github.io/)
+* [0xPat](https://0xpat.github.io/)
