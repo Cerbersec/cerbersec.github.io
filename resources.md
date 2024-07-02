@@ -50,8 +50,6 @@ This is a non-curated list of sources and resources that helped me get started w
 * [Awesome OSCP](https://github.com/0x4D31/awesome-oscp) - OSCP related resources
 
 ### Books
-* [allitebooks](http://www.allitebooks.org/security/) - Collection of IT related eBooks
-* [libgen.is](https://libgen.is/) - Collection of books, access with a VPN!
 * [Grey hat hacking 3rd edition](https://www.amazon.com/Gray-Hacking-Ethical-Hackers-Handbook/dp/0071742557)
 * [Hacking - The Art of Exploitation 2nd edition](https://www.amazon.com/Hacking-Art-Exploitation-Jon-Erickson/dp/1593271441)
 * [Practical Reverse Engineering](https://www.amazon.com/Practical-Reverse-Engineering-Reversing-Obfuscation/dp/1118787315)
