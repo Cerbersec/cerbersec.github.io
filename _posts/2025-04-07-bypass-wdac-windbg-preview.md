@@ -87,7 +87,7 @@ if __name__ == "__main__":
 Shellcode that pops calc.exe would look something like this:
 
 ```
-.foreach /pS 5 ( register { .dvalloc 0x6B } ) { r @$t0 = register }
+.foreach /pS 5 ( register \{ .dvalloc 0x6B \} ) { r @$t0 = register }
 ;eb @$t0+00 53 ;eb @$t0+01 56 ;eb @$t0+02 57 ;eb @$t0+03 55
 ;eb @$t0+04 54 ;eb @$t0+05 58 ;eb @$t0+06 66 ;eb @$t0+07 83
 ;eb @$t0+08 E4 ;eb @$t0+09 F0 ;eb @$t0+0A 50 ;eb @$t0+0B 6A
