@@ -45,9 +45,7 @@ def convert_binary_file(input_file_path):
 
         with open(input_file_path, 'rb') as binary_file, open('shellcode.wds', 'w') as output_file:
             # write allocation instructions
-            {% raw %}
-            output_file.write(f".foreach /pS 5 ( register {{ .dvalloc 0x{file_size:X} }} ) {{ r @$t0 = register }}\n")
-            {% endraw %}
+            output_file.write(f".foreach /pS 5 ( register {{ "{{ .dvalloc 0x{file_size:X} " }}}} ) {{ r @$t0 = register }}\n")
 
             # write shellcode bytes
             byte = binary_file.read(1)
